@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Admin Page</h1>
-    <!-- Authentication -->
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
+    <html>
+      <head> 
+        @include('admin.css')
+      </head>
+      <body>
+        <header class="header">   
+          @include('admin.header')
+        </header>
+        <div class="d-flex align-items-stretch">
+          <!-- Sidebar Navigation-->
+            @include('admin.sidebar')
+          <!-- Sidebar Navigation end-->
+          <div class="page-content">
+            <div class="page-header">
+              <div class="container-fluid">
+                <h2 class="h5 no-margin-bottom">Dashboard</h2>
+              </div>
+            </div>
+            <section class="no-padding-top no-padding-bottom">
+              <div class="container-fluid">
+                <div class="row">
 
-        <x-dropdown-link :href="route('logout')"
-                onclick="event.preventDefault();
-                            this.closest('form').submit();">
-            {{ __('Log Out') }}
-        </x-dropdown-link>
-    </form>
-</body>
-</html>
+
+                  @include('admin.content')
+
+                  
+                </div>
+              </div>
+            </section>
+            
+
+
+
+
+            @include('admin.footer')
+          </div>
+        </div>
+
+        @include('admin.js')
+      </body>
+    </html>
